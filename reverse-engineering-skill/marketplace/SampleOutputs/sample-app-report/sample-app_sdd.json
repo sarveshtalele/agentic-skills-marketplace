@@ -1,0 +1,1119 @@
+{
+  "sdd_metadata": {
+    "version": "1.0",
+    "schema": "SDD-Framework-v1",
+    "generated_at": "2026-07-24T05:40:42.876959+00:00Z",
+    "generator": "Reverse Engineer Skill — Claude Code",
+    "model_used": "claude-sonnet-4-6"
+  },
+  "project": {
+    "name": "sample-app",
+    "repository_url": "marketplace/SampleOutputs/sample-app-source",
+    "primary_language": "python",
+    "tech_stack": [
+      "Flask"
+    ],
+    "platform": "Python / Linux",
+    "architecture_layers": [
+      "API / Presentation Layer",
+      "Business Logic Layer",
+      "Data Access Layer"
+    ]
+  },
+  "executive_summary": {
+    "purpose": "sample-app is a Python application in the E-Commerce / Online Retail domain. The codebase contains 11 source files, 7 classes, and 35 methods following a MVC Monolith architecture.",
+    "architecture_pattern": "MVC Monolith",
+    "tech_debt_concerns": [
+      "Moderate dependency footprint (11 packages) — review for outdated versions"
+    ],
+    "modernization_priority": "LOW",
+    "priority_reasoning": "The repository has 11 source files — a manageable scope for incremental improvement without a full rewrite."
+  },
+  "codebase_metrics": {
+    "total_files_analyzed": 11,
+    "total_classes": 7,
+    "total_methods": 35,
+    "total_api_endpoints": 9,
+    "language_distribution": {
+      "python": 11
+    },
+    "most_connected_modules": [
+      {
+        "module": "app",
+        "connections": 4
+      },
+      {
+        "module": "order_controller",
+        "connections": 4
+      },
+      {
+        "module": "admin_controller",
+        "connections": 3
+      },
+      {
+        "module": "auth_service",
+        "connections": 3
+      },
+      {
+        "module": "auth_controller",
+        "connections": 2
+      },
+      {
+        "module": "order_repository",
+        "connections": 1
+      },
+      {
+        "module": "user_repository",
+        "connections": 1
+      },
+      {
+        "module": "order_service",
+        "connections": 1
+      },
+      {
+        "module": "order",
+        "connections": 0
+      },
+      {
+        "module": "product",
+        "connections": 0
+      }
+    ],
+    "dead_code_files": 1,
+    "dead_code_classes": 7
+  },
+  "architecture": {
+    "style": "MVC Monolith",
+    "layers": [
+      "API / Presentation Layer",
+      "Business Logic Layer",
+      "Data Access Layer"
+    ],
+    "components": [
+      {
+        "name": "OrderStatus",
+        "type": "Class",
+        "file": "order.py",
+        "methods_count": 1
+      },
+      {
+        "name": "Order",
+        "type": "Class",
+        "file": "order.py",
+        "methods_count": 1
+      },
+      {
+        "name": "Product",
+        "type": "Class",
+        "file": "product.py",
+        "methods_count": 1
+      },
+      {
+        "name": "User",
+        "type": "Class",
+        "file": "user.py",
+        "methods_count": 2
+      },
+      {
+        "name": "OrderRepository",
+        "type": "Class",
+        "file": "order_repository.py",
+        "methods_count": 4
+      },
+      {
+        "name": "UserRepository",
+        "type": "Class",
+        "file": "user_repository.py",
+        "methods_count": 3
+      },
+      {
+        "name": "OrderService",
+        "type": "Class",
+        "file": "order_service.py",
+        "methods_count": 4
+      }
+    ],
+    "dependency_graph": {
+      "format": "Graphviz",
+      "diagram": "digraph G {\n  rankdir=LR;\n  splines=true;\n  node [shape=box, style=filled, fillcolor=\"#aeaeb2\", color=\"#8e8e93\", fontcolor=\"#1d1d1f\", fontname=\"Helvetica\", fontsize=10];\n  edge [color=\"#c7c7cc\", fontname=\"Helvetica\", fontsize=8];\n  node_0 [label=\"app\", fillcolor=\"#aeaeb2\", color=\"#8e8e93\", fontcolor=\"#1d1d1f\", shape=\"ellipse\"];\n  node_1 [label=\"controllers.admin.controller\", fillcolor=\"#0071e3\", color=\"#005bb5\", fontcolor=\"#ffffff\", shape=\"box\"];\n  node_2 [label=\"controllers.auth.controller\", fillcolor=\"#0071e3\", color=\"#005bb5\", fontcolor=\"#ffffff\", shape=\"box\"];\n  node_3 [label=\"flask\", fillcolor=\"#aeaeb2\", color=\"#8e8e93\", fontcolor=\"#1d1d1f\", shape=\"ellipse\"];\n  node_4 [label=\"controllers.order.controller\", fillcolor=\"#0071e3\", color=\"#005bb5\", fontcolor=\"#ffffff\", shape=\"box\"];\n  node_5 [label=\"admin_controller\", fillcolor=\"#0071e3\", color=\"#005bb5\", fontcolor=\"#ffffff\", shape=\"box\"];\n  node_6 [label=\"services.auth.service\", fillcolor=\"#30d158\", color=\"#1a8c3a\", fontcolor=\"#ffffff\", shape=\"box\"];\n  node_7 [label=\"repositories.user.repository\", fillcolor=\"#ff9f0a\", color=\"#c47900\", fontcolor=\"#ffffff\", shape=\"box\"];\n  node_8 [label=\"auth_controller\", fillcolor=\"#0071e3\", color=\"#005bb5\", fontcolor=\"#ffffff\", shape=\"box\"];\n  node_9 [label=\"models.user\", fillcolor=\"#aeaeb2\", color=\"#8e8e93\", fontcolor=\"#1d1d1f\", shape=\"ellipse\"];\n  node_10 [label=\"order_controller\", fillcolor=\"#0071e3\", color=\"#005bb5\", fontcolor=\"#ffffff\", shape=\"box\"];\n  node_11 [label=\"services.order.service\", fillcolor=\"#30d158\", color=\"#1a8c3a\", fontcolor=\"#ffffff\", shape=\"box\"];\n  node_12 [label=\"repositories.order.repository\", fillcolor=\"#ff9f0a\", color=\"#c47900\", fontcolor=\"#ffffff\", shape=\"box\"];\n  node_13 [label=\"order\", fillcolor=\"#aeaeb2\", color=\"#8e8e93\", fontcolor=\"#1d1d1f\", shape=\"ellipse\"];\n  node_14 [label=\"product\", fillcolor=\"#aeaeb2\", color=\"#8e8e93\", fontcolor=\"#1d1d1f\", shape=\"ellipse\"];\n  node_15 [label=\"user\", fillcolor=\"#aeaeb2\", color=\"#8e8e93\", fontcolor=\"#1d1d1f\", shape=\"ellipse\"];\n  node_16 [label=\"order_repository\", fillcolor=\"#ff9f0a\", color=\"#c47900\", fontcolor=\"#ffffff\", shape=\"box\"];\n  node_17 [label=\"models.order\", fillcolor=\"#aeaeb2\", color=\"#8e8e93\", fontcolor=\"#1d1d1f\", shape=\"ellipse\"];\n  node_18 [label=\"user_repository\", fillcolor=\"#ff9f0a\", color=\"#c47900\", fontcolor=\"#ffffff\", shape=\"box\"];\n  node_19 [label=\"auth_service\", fillcolor=\"#30d158\", color=\"#1a8c3a\", fontcolor=\"#ffffff\", shape=\"box\"];\n  node_20 [label=\"order_service\", fillcolor=\"#30d158\", color=\"#1a8c3a\", fontcolor=\"#ffffff\", shape=\"box\"];\n  node_0 -> node_1;\n  node_0 -> node_2;\n  node_0 -> node_3;\n  node_0 -> node_4;\n  node_5 -> node_3;\n  node_5 -> node_6;\n  node_5 -> node_7;\n  node_8 -> node_3;\n  node_8 -> node_9;\n  node_10 -> node_11;\n  node_10 -> node_3;\n  node_10 -> node_6;\n  node_10 -> node_12;\n  node_16 -> node_17;\n  node_18 -> node_9;\n  node_19 -> node_9;\n  node_19 -> node_3;\n  node_20 -> node_17;\n}"
+    }
+  },
+  "module_inventory": [
+    {
+      "file": "C:\\Users\\SarveshTalele\\Documents\\reverse-engineering-skill-github-copilot\\marketplace\\SampleOutputs\\sample-app\\app.py",
+      "relative_path": "app.py",
+      "language": "python",
+      "namespace": "",
+      "classes": [],
+      "methods": [
+        "index"
+      ],
+      "dependencies": [
+        "controllers.admin_controller",
+        "controllers.auth_controller",
+        "flask",
+        "controllers.order_controller"
+      ],
+      "api_routes": [
+        {
+          "path": "/",
+          "methods": [
+            "GET"
+          ],
+          "class": null,
+          "method": "view_func"
+        }
+      ]
+    },
+    {
+      "file": "C:\\Users\\SarveshTalele\\Documents\\reverse-engineering-skill-github-copilot\\marketplace\\SampleOutputs\\sample-app\\controllers\\admin_controller.py",
+      "relative_path": "admin_controller.py",
+      "language": "python",
+      "namespace": "",
+      "classes": [],
+      "methods": [
+        "list_users",
+        "reports"
+      ],
+      "dependencies": [
+        "flask",
+        "services.auth_service",
+        "repositories.user_repository"
+      ],
+      "api_routes": [
+        {
+          "path": "/admin/users",
+          "methods": [
+            "GET"
+          ],
+          "class": null,
+          "method": "view_func"
+        },
+        {
+          "path": "/admin/reports",
+          "methods": [
+            "GET"
+          ],
+          "class": null,
+          "method": "view_func"
+        }
+      ]
+    },
+    {
+      "file": "C:\\Users\\SarveshTalele\\Documents\\reverse-engineering-skill-github-copilot\\marketplace\\SampleOutputs\\sample-app\\controllers\\auth_controller.py",
+      "relative_path": "auth_controller.py",
+      "language": "python",
+      "namespace": "",
+      "classes": [],
+      "methods": [
+        "login",
+        "logout"
+      ],
+      "dependencies": [
+        "flask",
+        "models.user"
+      ],
+      "api_routes": [
+        {
+          "path": "/login",
+          "methods": [
+            "GET",
+            "POST"
+          ],
+          "class": null,
+          "method": "view_func"
+        },
+        {
+          "path": "/logout",
+          "methods": [
+            "POST"
+          ],
+          "class": null,
+          "method": "view_func"
+        }
+      ]
+    },
+    {
+      "file": "C:\\Users\\SarveshTalele\\Documents\\reverse-engineering-skill-github-copilot\\marketplace\\SampleOutputs\\sample-app\\controllers\\order_controller.py",
+      "relative_path": "order_controller.py",
+      "language": "python",
+      "namespace": "",
+      "classes": [],
+      "methods": [
+        "dashboard",
+        "orders_collection",
+        "order_detail",
+        "cancel_order"
+      ],
+      "dependencies": [
+        "services.order_service",
+        "flask",
+        "services.auth_service",
+        "repositories.order_repository"
+      ],
+      "api_routes": [
+        {
+          "path": "/dashboard",
+          "methods": [
+            "GET"
+          ],
+          "class": null,
+          "method": "view_func"
+        },
+        {
+          "path": "/api/orders",
+          "methods": [
+            "GET",
+            "POST"
+          ],
+          "class": null,
+          "method": "view_func"
+        },
+        {
+          "path": "/api/orders/<int:order_id>",
+          "methods": [
+            "GET"
+          ],
+          "class": null,
+          "method": "view_func"
+        },
+        {
+          "path": "/api/orders/<int:order_id>/cancel",
+          "methods": [
+            "POST"
+          ],
+          "class": null,
+          "method": "view_func"
+        }
+      ]
+    },
+    {
+      "file": "C:\\Users\\SarveshTalele\\Documents\\reverse-engineering-skill-github-copilot\\marketplace\\SampleOutputs\\sample-app\\models\\order.py",
+      "relative_path": "order.py",
+      "language": "python",
+      "namespace": "",
+      "classes": [
+        "OrderStatus",
+        "Order"
+      ],
+      "methods": [
+        "__init__"
+      ],
+      "dependencies": [],
+      "api_routes": []
+    },
+    {
+      "file": "C:\\Users\\SarveshTalele\\Documents\\reverse-engineering-skill-github-copilot\\marketplace\\SampleOutputs\\sample-app\\models\\product.py",
+      "relative_path": "product.py",
+      "language": "python",
+      "namespace": "",
+      "classes": [
+        "Product"
+      ],
+      "methods": [
+        "__init__"
+      ],
+      "dependencies": [],
+      "api_routes": []
+    },
+    {
+      "file": "C:\\Users\\SarveshTalele\\Documents\\reverse-engineering-skill-github-copilot\\marketplace\\SampleOutputs\\sample-app\\models\\user.py",
+      "relative_path": "user.py",
+      "language": "python",
+      "namespace": "",
+      "classes": [
+        "User"
+      ],
+      "methods": [
+        "__init__",
+        "get_by_id"
+      ],
+      "dependencies": [],
+      "api_routes": []
+    },
+    {
+      "file": "C:\\Users\\SarveshTalele\\Documents\\reverse-engineering-skill-github-copilot\\marketplace\\SampleOutputs\\sample-app\\repositories\\order_repository.py",
+      "relative_path": "order_repository.py",
+      "language": "python",
+      "namespace": "",
+      "classes": [
+        "OrderRepository"
+      ],
+      "methods": [
+        "__init__",
+        "save",
+        "get_by_id",
+        "find_by_customer"
+      ],
+      "dependencies": [
+        "models.order"
+      ],
+      "api_routes": []
+    },
+    {
+      "file": "C:\\Users\\SarveshTalele\\Documents\\reverse-engineering-skill-github-copilot\\marketplace\\SampleOutputs\\sample-app\\repositories\\user_repository.py",
+      "relative_path": "user_repository.py",
+      "language": "python",
+      "namespace": "",
+      "classes": [
+        "UserRepository"
+      ],
+      "methods": [
+        "__init__",
+        "all",
+        "get_by_id"
+      ],
+      "dependencies": [
+        "models.user"
+      ],
+      "api_routes": []
+    },
+    {
+      "file": "C:\\Users\\SarveshTalele\\Documents\\reverse-engineering-skill-github-copilot\\marketplace\\SampleOutputs\\sample-app\\services\\auth_service.py",
+      "relative_path": "auth_service.py",
+      "language": "python",
+      "namespace": "",
+      "classes": [],
+      "methods": [
+        "current_user",
+        "login_required",
+        "wrapper",
+        "role_required",
+        "decorator",
+        "wrapper",
+        "canEditOrder",
+        "current_user",
+        "login_required",
+        "role_required",
+        "canEditOrder"
+      ],
+      "dependencies": [
+        "models.user",
+        "functools",
+        "flask"
+      ],
+      "api_routes": []
+    },
+    {
+      "file": "C:\\Users\\SarveshTalele\\Documents\\reverse-engineering-skill-github-copilot\\marketplace\\SampleOutputs\\sample-app\\services\\order_service.py",
+      "relative_path": "order_service.py",
+      "language": "python",
+      "namespace": "",
+      "classes": [
+        "OrderService"
+      ],
+      "methods": [
+        "__init__",
+        "create_order",
+        "cancel_order",
+        "list_orders_for_customer"
+      ],
+      "dependencies": [
+        "models.order"
+      ],
+      "api_routes": []
+    }
+  ],
+  "api_catalog": {
+    "openapi_spec": {
+      "openapi": "3.0.0",
+      "info": {
+        "title": "sample-app API",
+        "version": "1.0.0",
+        "description": "Auto-extracted OpenAPI 3.0 spec from sample-app"
+      },
+      "paths": {
+        "/": {
+          "get": {
+            "summary": "global.view_func()",
+            "description": "Defined in `app.py`",
+            "responses": {
+              "200": {
+                "description": "Success"
+              }
+            }
+          }
+        },
+        "/admin/users": {
+          "get": {
+            "summary": "global.view_func()",
+            "description": "Defined in `admin_controller.py`",
+            "responses": {
+              "200": {
+                "description": "Success"
+              }
+            }
+          }
+        },
+        "/admin/reports": {
+          "get": {
+            "summary": "global.view_func()",
+            "description": "Defined in `admin_controller.py`",
+            "responses": {
+              "200": {
+                "description": "Success"
+              }
+            }
+          }
+        },
+        "/login": {
+          "get": {
+            "summary": "global.view_func()",
+            "description": "Defined in `auth_controller.py`",
+            "responses": {
+              "200": {
+                "description": "Success"
+              }
+            }
+          },
+          "post": {
+            "summary": "global.view_func()",
+            "description": "Defined in `auth_controller.py`",
+            "responses": {
+              "200": {
+                "description": "Success"
+              }
+            }
+          }
+        },
+        "/logout": {
+          "post": {
+            "summary": "global.view_func()",
+            "description": "Defined in `auth_controller.py`",
+            "responses": {
+              "200": {
+                "description": "Success"
+              }
+            }
+          }
+        },
+        "/dashboard": {
+          "get": {
+            "summary": "global.view_func()",
+            "description": "Defined in `order_controller.py`",
+            "responses": {
+              "200": {
+                "description": "Success"
+              }
+            }
+          }
+        },
+        "/api/orders": {
+          "get": {
+            "summary": "global.view_func()",
+            "description": "Defined in `order_controller.py`",
+            "responses": {
+              "200": {
+                "description": "Success"
+              }
+            }
+          },
+          "post": {
+            "summary": "global.view_func()",
+            "description": "Defined in `order_controller.py`",
+            "responses": {
+              "200": {
+                "description": "Success"
+              }
+            }
+          }
+        },
+        "/api/orders/{int:order_id}": {
+          "get": {
+            "summary": "global.view_func()",
+            "description": "Defined in `order_controller.py`",
+            "responses": {
+              "200": {
+                "description": "Success"
+              }
+            }
+          }
+        },
+        "/api/orders/{int:order_id}/cancel": {
+          "post": {
+            "summary": "global.view_func()",
+            "description": "Defined in `order_controller.py`",
+            "responses": {
+              "200": {
+                "description": "Success"
+              }
+            }
+          }
+        }
+      }
+    },
+    "total_endpoints": 9,
+    "endpoints": [
+      {
+        "path": "/",
+        "http_methods": [
+          "GET"
+        ],
+        "handler": "global.view_func()",
+        "file": "app.py"
+      },
+      {
+        "path": "/admin/users",
+        "http_methods": [
+          "GET"
+        ],
+        "handler": "global.view_func()",
+        "file": "admin_controller.py"
+      },
+      {
+        "path": "/admin/reports",
+        "http_methods": [
+          "GET"
+        ],
+        "handler": "global.view_func()",
+        "file": "admin_controller.py"
+      },
+      {
+        "path": "/login",
+        "http_methods": [
+          "GET",
+          "POST"
+        ],
+        "handler": "global.view_func()",
+        "file": "auth_controller.py"
+      },
+      {
+        "path": "/logout",
+        "http_methods": [
+          "POST"
+        ],
+        "handler": "global.view_func()",
+        "file": "auth_controller.py"
+      },
+      {
+        "path": "/dashboard",
+        "http_methods": [
+          "GET"
+        ],
+        "handler": "global.view_func()",
+        "file": "order_controller.py"
+      },
+      {
+        "path": "/api/orders",
+        "http_methods": [
+          "GET",
+          "POST"
+        ],
+        "handler": "global.view_func()",
+        "file": "order_controller.py"
+      },
+      {
+        "path": "/api/orders/<int:order_id>",
+        "http_methods": [
+          "GET"
+        ],
+        "handler": "global.view_func()",
+        "file": "order_controller.py"
+      },
+      {
+        "path": "/api/orders/<int:order_id>/cancel",
+        "http_methods": [
+          "POST"
+        ],
+        "handler": "global.view_func()",
+        "file": "order_controller.py"
+      }
+    ]
+  },
+  "dependency_analysis": {
+    "total_unique_external_deps": 11,
+    "external_dependencies": [
+      "controllers.admin_controller",
+      "controllers.auth_controller",
+      "controllers.order_controller",
+      "flask",
+      "functools",
+      "models.order",
+      "models.user",
+      "repositories.order_repository",
+      "repositories.user_repository",
+      "services.auth_service",
+      "services.order_service"
+    ],
+    "dependency_map_sample": {
+      "app": [
+        "controllers.admin_controller",
+        "controllers.auth_controller",
+        "controllers.order_controller",
+        "flask"
+      ],
+      "admin_controller": [
+        "flask",
+        "repositories.user_repository",
+        "services.auth_service"
+      ],
+      "auth_controller": [
+        "flask",
+        "models.user"
+      ],
+      "order_controller": [
+        "flask",
+        "repositories.order_repository",
+        "services.auth_service",
+        "services.order_service"
+      ],
+      "order": [],
+      "product": [],
+      "user": [],
+      "order_repository": [
+        "models.order"
+      ],
+      "user_repository": [
+        "models.user"
+      ],
+      "auth_service": [
+        "flask",
+        "functools",
+        "models.user"
+      ],
+      "order_service": [
+        "models.order"
+      ]
+    },
+    "top_10_most_connected": [
+      {
+        "module": "app",
+        "connections": 4
+      },
+      {
+        "module": "order_controller",
+        "connections": 4
+      },
+      {
+        "module": "admin_controller",
+        "connections": 3
+      },
+      {
+        "module": "auth_service",
+        "connections": 3
+      },
+      {
+        "module": "auth_controller",
+        "connections": 2
+      },
+      {
+        "module": "order_repository",
+        "connections": 1
+      },
+      {
+        "module": "user_repository",
+        "connections": 1
+      },
+      {
+        "module": "order_service",
+        "connections": 1
+      },
+      {
+        "module": "order",
+        "connections": 0
+      },
+      {
+        "module": "product",
+        "connections": 0
+      }
+    ]
+  },
+  "dead_code_analysis": {
+    "summary": "1 potentially unreferenced files, 7 unreferenced classes",
+    "unreferenced_files": [
+      "product.py"
+    ],
+    "unreferenced_files_full_paths": [
+      "C:\\Users\\SarveshTalele\\Documents\\reverse-engineering-skill-github-copilot\\marketplace\\SampleOutputs\\sample-app\\models\\product.py"
+    ],
+    "unreferenced_classes": [
+      {
+        "class": "OrderStatus",
+        "file": "C:\\Users\\SarveshTalele\\Documents\\reverse-engineering-skill-github-copilot\\marketplace\\SampleOutputs\\sample-app\\models\\order.py"
+      },
+      {
+        "class": "Order",
+        "file": "C:\\Users\\SarveshTalele\\Documents\\reverse-engineering-skill-github-copilot\\marketplace\\SampleOutputs\\sample-app\\models\\order.py"
+      },
+      {
+        "class": "Product",
+        "file": "C:\\Users\\SarveshTalele\\Documents\\reverse-engineering-skill-github-copilot\\marketplace\\SampleOutputs\\sample-app\\models\\product.py"
+      },
+      {
+        "class": "User",
+        "file": "C:\\Users\\SarveshTalele\\Documents\\reverse-engineering-skill-github-copilot\\marketplace\\SampleOutputs\\sample-app\\models\\user.py"
+      },
+      {
+        "class": "OrderRepository",
+        "file": "C:\\Users\\SarveshTalele\\Documents\\reverse-engineering-skill-github-copilot\\marketplace\\SampleOutputs\\sample-app\\repositories\\order_repository.py"
+      },
+      {
+        "class": "UserRepository",
+        "file": "C:\\Users\\SarveshTalele\\Documents\\reverse-engineering-skill-github-copilot\\marketplace\\SampleOutputs\\sample-app\\repositories\\user_repository.py"
+      },
+      {
+        "class": "OrderService",
+        "file": "C:\\Users\\SarveshTalele\\Documents\\reverse-engineering-skill-github-copilot\\marketplace\\SampleOutputs\\sample-app\\services\\order_service.py"
+      }
+    ]
+  },
+  "data_architecture": {
+    "entity_count": 0,
+    "relationship_count": 0,
+    "has_schema": false,
+    "entities": [],
+    "microservice_data_boundaries": [
+      {
+        "name": "User & Identity Service",
+        "entities": [],
+        "color": "#0071e3",
+        "entity_count": 0
+      },
+      {
+        "name": "Product & Catalog Service",
+        "entities": [],
+        "color": "#30d158",
+        "entity_count": 0
+      },
+      {
+        "name": "Order & Payment Service",
+        "entities": [],
+        "color": "#ff9f0a",
+        "entity_count": 0
+      },
+      {
+        "name": "Core Domain Service",
+        "entities": [],
+        "color": "#bf5af2",
+        "entity_count": 0
+      }
+    ],
+    "migration_notes": "Each bounded context (microservice) should own its own database. Shared tables must be decomposed via API contracts or event-driven integration (e.g., domain events with an outbox pattern). Begin with the least-coupled bounded context to minimise risk."
+  },
+  "business_logic": {
+    "business_domain": "E-Commerce / Online Retail",
+    "what_it_does": "sample-app is a Python application operating in the **E-Commerce / Online Retail** domain. It serves 2 identified user role(s) — User, Admin — through 9 API endpoint(s) backed by 0 data entity/entities.\n\nThe system manages core business data across 0 entities and exposes its functionality via a structured API. Key integrations detected include: Standard HTTP API, Relational Database.\n\nThis analysis was produced entirely from static code analysis — no AI API calls are made. For AI-powered narrative, open the generated report in Claude Code or GitHub Copilot and ask it to enhance the executive summary and business logic sections.",
+    "core_workflows": [
+      {
+        "name": "General Management",
+        "description": "Handles general-related operations (GET).",
+        "steps": [
+          "Client sends request to /",
+          "System validates input and applies business rules",
+          "Response returned with updated state"
+        ],
+        "endpoints": [
+          "/"
+        ]
+      },
+      {
+        "name": "Admin Management",
+        "description": "Handles admin-related operations (GET).",
+        "steps": [
+          "Client sends request to /admin/users",
+          "System validates input and applies business rules",
+          "Response returned with updated state"
+        ],
+        "endpoints": [
+          "/admin/users",
+          "/admin/reports"
+        ]
+      },
+      {
+        "name": "Login Management",
+        "description": "Handles login-related operations (GET, POST).",
+        "steps": [
+          "Client sends request to /login",
+          "System validates input and applies business rules",
+          "Response returned with updated state"
+        ],
+        "endpoints": [
+          "/login"
+        ]
+      },
+      {
+        "name": "Logout Management",
+        "description": "Handles logout-related operations (POST).",
+        "steps": [
+          "Client sends request to /logout",
+          "System validates input and applies business rules",
+          "Response returned with updated state"
+        ],
+        "endpoints": [
+          "/logout"
+        ]
+      },
+      {
+        "name": "Dashboard Management",
+        "description": "Handles dashboard-related operations (GET).",
+        "steps": [
+          "Client sends request to /dashboard",
+          "System validates input and applies business rules",
+          "Response returned with updated state"
+        ],
+        "endpoints": [
+          "/dashboard"
+        ]
+      }
+    ],
+    "user_roles": [
+      "User",
+      "Admin"
+    ],
+    "key_business_rules": [
+      "The system exposes 9 API endpoints enforcing structured data access."
+    ],
+    "data_entities_explained": [],
+    "integrations": [
+      "Standard HTTP API",
+      "Relational Database"
+    ],
+    "ai_generated": true,
+    "block_diagram": "digraph G {\n  rankdir=TB;\n  splines=ortho;\n  nodesep=0.4;\n  ranksep=0.5;\n  bgcolor=\"transparent\";\n  node [shape=box, style=\"filled,rounded\", fontname=\"Helvetica\", fontsize=11, fillcolor=\"#f5f5f7\", fontcolor=\"#1d1d1f\", penwidth=1.5];\n  edge [color=\"#8e8e93\", fontname=\"Helvetica\", fontsize=9, fontcolor=\"#8e8e93\", arrowhead=vee, arrowsize=0.7];\n  subgraph cluster_0 {\n    label = \"User / Client\";\n    color = \"#6e6e73\";\n    style = \"dashed,rounded\";\n    fontname = \"Helvetica\";\n    fontsize = 12;\n    fontcolor = \"#6e6e73\";\n    penwidth = 2.0;\n    \"client_node\" [label=\"Web Browser / API Client\", fillcolor=\"#6e6e73\", fontcolor=\"#ffffff\", style=\"filled,rounded\", penwidth=0];\n  }\n  subgraph cluster_1 {\n    label = \"API / Presentation Layer\";\n    color = \"#0071e3\";\n    style = \"dashed,rounded\";\n    fontname = \"Helvetica\";\n    fontsize = 12;\n    fontcolor = \"#0071e3\";\n    penwidth = 2.0;\n    \"admin_controller\" [label=\"admin_controller\", fillcolor=\"#0071e3\", fontcolor=\"#ffffff\", style=\"filled,rounded\", penwidth=0];\n    \"auth_controller\" [label=\"auth_controller\", fillcolor=\"#0071e3\", fontcolor=\"#ffffff\", style=\"filled,rounded\", penwidth=0];\n    \"order_controller\" [label=\"order_controller\", fillcolor=\"#0071e3\", fontcolor=\"#ffffff\", style=\"filled,rounded\", penwidth=0];\n  }\n  subgraph cluster_2 {\n    label = \"Business Logic / Service Layer\";\n    color = \"#30d158\";\n    style = \"dashed,rounded\";\n    fontname = \"Helvetica\";\n    fontsize = 12;\n    fontcolor = \"#30d158\";\n    penwidth = 2.0;\n    \"auth_service\" [label=\"auth_service\", fillcolor=\"#30d158\", fontcolor=\"#ffffff\", style=\"filled,rounded\", penwidth=0];\n    \"OrderService\" [label=\"OrderService\", fillcolor=\"#30d158\", fontcolor=\"#ffffff\", style=\"filled,rounded\", penwidth=0];\n  }\n  subgraph cluster_3 {\n    label = \"Data Access / Repository Layer\";\n    color = \"#ff9f0a\";\n    style = \"dashed,rounded\";\n    fontname = \"Helvetica\";\n    fontsize = 12;\n    fontcolor = \"#ff9f0a\";\n    penwidth = 2.0;\n    \"OrderRepository\" [label=\"OrderRepository\", fillcolor=\"#ff9f0a\", fontcolor=\"#ffffff\", style=\"filled,rounded\", penwidth=0];\n    \"UserRepository\" [label=\"UserRepository\", fillcolor=\"#ff9f0a\", fontcolor=\"#ffffff\", style=\"filled,rounded\", penwidth=0];\n  }\n  \"client_node\" -> \"admin_controller\" [label=\"HTTP\"];\n  \"client_node\" -> \"auth_controller\" [label=\"HTTP\"];\n  \"client_node\" -> \"order_controller\" [label=\"HTTP\"];\n  \"admin_controller\" -> \"auth_service\" [label=\"calls\"];\n  \"auth_controller\" -> \"OrderService\" [label=\"calls\"];\n  \"order_controller\" -> \"OrderService\" [label=\"calls\"];\n  \"auth_service\" -> \"OrderRepository\" [label=\"data ops\"];\n  \"OrderService\" -> \"UserRepository\" [label=\"data ops\"];\n}"
+  },
+  "modernization_roadmap": {
+    "target_stack": [
+      "FastAPI",
+      "Python 3.12",
+      "SQLAlchemy 2.0",
+      "Docker",
+      "Redis"
+    ],
+    "phases": [
+      {
+        "phase": 1,
+        "title": "Assessment & Quick Wins",
+        "duration": "1 month",
+        "risk": "LOW",
+        "tasks": [
+          "Code review",
+          "Identify easy refactors",
+          "Set up linting and CI"
+        ]
+      },
+      {
+        "phase": 2,
+        "title": "Incremental Modernization",
+        "duration": "2-4 months",
+        "risk": "MEDIUM",
+        "tasks": [
+          "Upgrade dependencies",
+          "Add test coverage",
+          "Refactor hotspots"
+        ]
+      },
+      {
+        "phase": 3,
+        "title": "Cloud & Container Readiness",
+        "duration": "1-2 months",
+        "risk": "LOW",
+        "tasks": [
+          "Dockerize application",
+          "Add health checks",
+          "Set up monitoring"
+        ]
+      },
+      {
+        "phase": 4,
+        "title": "Final Validation",
+        "duration": "1 month",
+        "risk": "LOW",
+        "tasks": [
+          "Full regression tests",
+          "Performance validation",
+          "Go-live"
+        ]
+      }
+    ],
+    "microservices_boundaries": [
+      "User & Identity Service",
+      "Product & Catalog Service",
+      "Order & Payment Service",
+      "Core Domain Service"
+    ],
+    "estimated_total_effort": "4-8 months",
+    "risk_factors": [
+      "Team retraining required for new framework/toolchain"
+    ]
+  },
+  "risk_assessment": [
+    {
+      "id": "RISK-001",
+      "category": "Technical Debt",
+      "severity": "MEDIUM",
+      "description": "Codebase contains 11 files with accumulated tech debt.",
+      "recommendation": "Conduct systematic code review and establish refactoring backlog."
+    },
+    {
+      "id": "RISK-002",
+      "category": "Dead Code",
+      "severity": "LOW",
+      "description": "1 potentially unreferenced modules detected.",
+      "recommendation": "Review and prune unused code to reduce maintenance surface area."
+    },
+    {
+      "id": "RISK-003",
+      "category": "API Documentation",
+      "severity": "LOW",
+      "description": "9 API endpoints extracted. Partial auto-extraction completed.",
+      "recommendation": "Ensure all API contracts are documented with OpenAPI 3.0 specification."
+    },
+    {
+      "id": "RISK-004",
+      "category": "Dependency Hygiene",
+      "severity": "MEDIUM",
+      "description": "11 unique external dependencies detected.",
+      "recommendation": "Audit dependency versions against CVE databases and upgrade stale packages."
+    }
+  ],
+  "tech_debt_inventory": [
+    {
+      "category": "Legacy Dependencies",
+      "severity": "HIGH",
+      "description": "Detected 11 external dependencies — audit for outdated versions."
+    },
+    {
+      "category": "Documentation Coverage",
+      "severity": "HIGH",
+      "description": "Auto-documentation generated; manual review recommended for accuracy."
+    },
+    {
+      "category": "Test Coverage",
+      "severity": "HIGH",
+      "description": "Test coverage metrics not assessed — review existing test suites."
+    },
+    {
+      "category": "Dead Code Removal",
+      "severity": "HIGH",
+      "description": "1 unreferenced files identified for potential removal."
+    },
+    {
+      "category": "API Contract Gaps",
+      "severity": "HIGH",
+      "description": "9 endpoints extracted; validate completeness."
+    }
+  ],
+  "auth_analysis": {
+    "auth_type": "Hybrid RBAC + ReBAC",
+    "auth_frameworks": [],
+    "rbac": [
+      {
+        "file": "admin_controller.py",
+        "pattern": "Django/Flask @login_required",
+        "example": "@login_required"
+      },
+      {
+        "file": "admin_controller.py",
+        "pattern": "Python role_required",
+        "example": "admin"
+      },
+      {
+        "file": "order_controller.py",
+        "pattern": "Django/Flask @login_required",
+        "example": "@login_required"
+      }
+    ],
+    "abac": [],
+    "rebac": [
+      {
+        "file": "order_controller.py",
+        "pattern": "canEdit() relationship check",
+        "example": ""
+      },
+      {
+        "file": "auth_service.py",
+        "pattern": "canEdit() relationship check",
+        "example": ""
+      }
+    ],
+    "roles_detected": [
+      "admin",
+      "customer"
+    ],
+    "policies_detected": [],
+    "protected_routes": [
+      "/admin/users",
+      "/admin/reports",
+      "/dashboard",
+      "/api/orders",
+      "/api/orders/<int:order_id>",
+      "/api/orders/<int:order_id>/cancel"
+    ],
+    "public_routes": [
+      "/",
+      "/login",
+      "/logout"
+    ]
+  },
+  "screens_navigation": {
+    "project_type": "API-Driven Web Application (MVC)",
+    "screen_count": 5,
+    "screens": [
+      {
+        "name": "Admin",
+        "file": "admin_controller",
+        "type": "MVC Controller Actions",
+        "routes": [
+          "/admin/users",
+          "/admin/reports"
+        ],
+        "description": "Admin Panel / Back-Office",
+        "classes": []
+      },
+      {
+        "name": "Login",
+        "file": "login_controller",
+        "type": "MVC Controller Actions",
+        "routes": [
+          "/login"
+        ],
+        "description": "Login Screen",
+        "classes": []
+      },
+      {
+        "name": "Logout",
+        "file": "logout_controller",
+        "type": "MVC Controller Actions",
+        "routes": [
+          "/logout"
+        ],
+        "description": "Logout Handler",
+        "classes": []
+      },
+      {
+        "name": "Dashboard",
+        "file": "dashboard_controller",
+        "type": "MVC Controller Actions",
+        "routes": [
+          "/dashboard"
+        ],
+        "description": "Dashboard / Overview",
+        "classes": []
+      },
+      {
+        "name": "Orders",
+        "file": "orders_controller",
+        "type": "MVC Controller Actions",
+        "routes": [
+          "/api/orders",
+          "/api/orders/<int:order_id>",
+          "/api/orders/<int:order_id>/cancel"
+        ],
+        "description": "Order Summary / History",
+        "classes": []
+      }
+    ],
+    "navigation_flow": [
+      {
+        "from": "Login",
+        "to": "Dashboard",
+        "label": "On successful login"
+      },
+      {
+        "from": "Orders",
+        "to": "Dashboard",
+        "label": "Continue shopping"
+      }
+    ]
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "generated_at": "2026-07-24T05:40:42.887354+00:00Z",
+  "repo_name": "sample-app",
+  "output_directory": "marketplace\\SampleOutputs\\sample-app",
+  "files_written": [
+    {
+      "file": "sample-app_sdd.json",
+      "type": "json",
+      "size": 37183
+    },
+    {
+      "file": "sample-app_report.md",
+      "type": "text",
+      "size": 18485
+    }
+  ],
+  "metrics": {
+    "files_analyzed": 11,
+    "classes": 7,
+    "methods": 35,
+    "api_endpoints": 9,
+    "dead_files": 1,
+    "primary_language": "python"
+  }
+}

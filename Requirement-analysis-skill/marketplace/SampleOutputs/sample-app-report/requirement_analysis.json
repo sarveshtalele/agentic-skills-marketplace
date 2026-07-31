@@ -1,0 +1,171 @@
+{
+  "repo_path": "C:\\Users\\SarveshTalele\\Downloads\\skills\\Requirement-analysis-skill\\marketplace\\SampleOutputs\\sample-app-source",
+  "intent": {
+    "raw_text": "Add a discount_code field to the Order model and expose it on the orders API",
+    "action": "add",
+    "target_types": [
+      "api_endpoint",
+      "database"
+    ],
+    "entities": [
+      "API",
+      "discount_code"
+    ],
+    "domain_tags": [
+      "financial_critical"
+    ]
+  },
+  "location": {
+    "candidates": [
+      {
+        "path": "controllers/order_controller.py",
+        "module_type": "api_endpoint",
+        "score": 9,
+        "match_reasons": [
+          "file type 'api_endpoint' matches requested type",
+          "content contains 1 matching term(s)"
+        ],
+        "matched_symbols": [],
+        "suggestion": "No exact symbol match \u2014 add a new route/endpoint handler in this file (api_endpoint), following its existing conventions."
+      },
+      {
+        "path": "controllers/admin_controller.py",
+        "module_type": "api_endpoint",
+        "score": 6,
+        "match_reasons": [
+          "file type 'api_endpoint' matches requested type"
+        ],
+        "matched_symbols": [],
+        "suggestion": "No exact symbol match \u2014 add a new route/endpoint handler in this file (api_endpoint), following its existing conventions."
+      },
+      {
+        "path": "controllers/auth_controller.py",
+        "module_type": "api_endpoint",
+        "score": 6,
+        "match_reasons": [
+          "file type 'api_endpoint' matches requested type"
+        ],
+        "matched_symbols": [],
+        "suggestion": "No exact symbol match \u2014 add a new route/endpoint handler in this file (api_endpoint), following its existing conventions."
+      },
+      {
+        "path": "models/order.py",
+        "module_type": "database",
+        "score": 6,
+        "match_reasons": [
+          "file type 'database' matches requested type"
+        ],
+        "matched_symbols": [],
+        "suggestion": "No exact symbol match \u2014 add a new model field, class, or migration in this file (database), following its existing conventions."
+      },
+      {
+        "path": "models/product.py",
+        "module_type": "database",
+        "score": 6,
+        "match_reasons": [
+          "file type 'database' matches requested type"
+        ],
+        "matched_symbols": [],
+        "suggestion": "No exact symbol match \u2014 add a new model field, class, or migration in this file (database), following its existing conventions."
+      }
+    ],
+    "new_file_suggestion": null
+  },
+  "pattern": null,
+  "security_compliance": [
+    {
+      "category": "security",
+      "item": "Apply rate limiting / throttling to the new or changed endpoint.",
+      "reference": "OWASP API Security Top 10 \u2014 API4"
+    },
+    {
+      "category": "security",
+      "item": "Enforce authentication and authorization checks before processing the request.",
+      "reference": "OWASP ASVS V4"
+    },
+    {
+      "category": "security",
+      "item": "Return generic error messages; never leak stack traces or internal identifiers.",
+      "reference": "OWASP ASVS V7"
+    },
+    {
+      "category": "security",
+      "item": "Use parameterized queries / ORM methods only \u2014 never build SQL via string concatenation.",
+      "reference": "OWASP A03:2021 Injection"
+    },
+    {
+      "category": "security",
+      "item": "Validate and sanitize all input parameters, query strings, and request bodies.",
+      "reference": "OWASP ASVS V5 / A03:2021 Injection"
+    },
+    {
+      "category": "compliance",
+      "item": "Add a forward-and-backward-compatible migration script; never edit a previously applied migration.",
+      "reference": "Schema change governance"
+    },
+    {
+      "category": "compliance",
+      "item": "Never store raw payment card data \u2014 use a tokenized reference from the payment processor.",
+      "reference": "PCI-DSS"
+    },
+    {
+      "category": "compliance",
+      "item": "Update the OpenAPI/Swagger/GraphQL contract to reflect the change.",
+      "reference": "API contract governance"
+    },
+    {
+      "category": "compliance",
+      "item": "Write an audit-log entry for every financial state change (amounts, status transitions)."
+    },
+    {
+      "category": "standard",
+      "item": "Add or update an index if the new/changed column is used in lookups or joins."
+    },
+    {
+      "category": "standard",
+      "item": "Add or update unit tests for the change."
+    },
+    {
+      "category": "standard",
+      "item": "Follow existing route naming, versioning (e.g. /api/v1/...), and response envelope conventions."
+    },
+    {
+      "category": "standard",
+      "item": "Run the project's formatter and linter before committing (see Formatting section)."
+    },
+    {
+      "category": "standard",
+      "item": "Update relevant documentation, README, or changelog entries."
+    }
+  ],
+  "formatting": {
+    "detected_tools": [],
+    "candidate_file_styles": {
+      "controllers/order_controller.py": {
+        "indent": "spaces:4",
+        "quote_style": "double",
+        "line_ending": "LF"
+      },
+      "controllers/admin_controller.py": {
+        "indent": "spaces:4",
+        "quote_style": "double",
+        "line_ending": "LF"
+      },
+      "controllers/auth_controller.py": {
+        "indent": "spaces:4",
+        "quote_style": "double",
+        "line_ending": "LF"
+      },
+      "models/order.py": {
+        "indent": "spaces:4",
+        "quote_style": "double",
+        "line_ending": "LF"
+      },
+      "models/product.py": {
+        "indent": "spaces:4",
+        "quote_style": "n/a",
+        "line_ending": "LF"
+      }
+    }
+  }
+}

@@ -1,0 +1,32 @@
+# Claude Code local-only settings — but DO ship the installed skill itself
+# (.claude/skills/) so Claude Code auto-discovers it the moment this repo is cloned.
+.claude/*
+!.claude/skills/
+.claude/settings.local.json
+
+# Generated analysis output (not source)
+change-impact-output/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Test / temp output
+*.tmp
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# PowerPoint / Excel build artefacts (generated, not source)
+*.pptx
+*.xlsx
