@@ -1,0 +1,42 @@
+{
+  "skill_name": "requirement-analysis",
+  "overall_score": 96.1,
+  "status": "PASS",
+  "passed": true,
+  "eval_mode": "static_heuristic",
+  "dimensions": {
+    "specification": 100.0,
+    "content": 90.0,
+    "functional": 100.0,
+    "skill_lift": 100.0,
+    "trigger": 88.9,
+    "reliability": 90.0,
+    "efficiency": 85.0,
+    "security": 100.0
+  },
+  "gate_decision": {
+    "status": "PASS",
+    "passed": true,
+    "blocking_reasons": [],
+    "warning_reasons": []
+  },
+  "security_summary": {
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "low": 0,
+    "false_positives": 0,
+    "total_findings": 0
+  },
+  "security_findings": [],
+  "regression": {
+    "skill_name": "requirement-analysis",
+    "has_baseline": true,
+    "overall_delta": 0.0,
+    "functional_delta": 0.0,
+    "security_delta": 0.0,
+    "trigger_delta": 0.0,
+    "regressions": [],
+    "has_critical_regression": false
+  }
+}

@@ -1,0 +1,323 @@
+{
+  "skill_name": "reverse-engineering-skill",
+  "overall_score": 96.1,
+  "status": "PASS",
+  "passed": true,
+  "eval_mode": "static_heuristic",
+  "dimensions": {
+    "specification": 100.0,
+    "content": 90.0,
+    "functional": 100.0,
+    "skill_lift": 100.0,
+    "trigger": 88.9,
+    "reliability": 90.0,
+    "efficiency": 85.0,
+    "security": 100.0
+  },
+  "gate_decision": {
+    "status": "PASS",
+    "passed": true,
+    "blocking_reasons": [],
+    "warning_reasons": []
+  },
+  "security_summary": {
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "low": 0,
+    "false_positives": 35,
+    "total_findings": 35
+  },
+  "security_findings": [
+    {
+      "category": "Dangerous Code AST",
+      "severity": "MEDIUM",
+      "file": "/Users/sarveshtalele/Downloads/awesome-agent-skills/skills/reverse-engineering-skill/scripts/engine/pipeline.py",
+      "line_number": 83,
+      "description": "Subprocess Invocation via subprocess.run",
+      "snippet": "  80 |             the stderr output included in the exception message.\n  81 |     \"\"\"\n  82 |     print(f\"  Cloning {url} -> {target_dir}\")\n  83 >     result = subprocess.run(\n  84 |         [\"git\", \"clone\", \"--depth=1\", url, target_dir],\n  85 |         capture_output=True,\n  86 |         text=True,"
+    },
+    {
+      "category": "Output Handling",
+      "severity": "HIGH",
+      "file": "/Users/sarveshtalele/Downloads/awesome-agent-skills/skills/reverse-engineering-skill/scripts/engine/generators/dashboard.py",
+      "line_number": 1612,
+      "description": "Unsafe Output Handling / DOM Injection",
+      "snippet": "1609 |     {{ label: 'API Endpoints',       value: DATA.metrics.endpoints, sub: 'routes extracted' }},\n1610 |     {{ label: 'Dead Code Files',     value: DATA.metrics.deadFiles, sub: 'potentially unreferenced' }},\n1611 |   ];\n1612 >   grid.innerHTML = items.map((item, i) => `\n1613 |     <div class=\"metric-card\">\n1614 |       <div class=\"metric-icon-wrap\" style=\"background:${{ICON_COLORS[i]}}18;color:${{ICON_COLORS[i]}}\">\n1615 |         ${{ICON_SVGS[i]}}"
+    },
+    {
+      "category": "Output Handling",
+      "severity": "HIGH",
+      "file": "/Users/sarveshtalele/Downloads/awesome-agent-skills/skills/reverse-engineering-skill/scripts/engine/generators/dashboard.py",
+      "line_number": 1635,
+      "description": "Unsafe Output Handling / DOM Injection",
+      "snippet": "1632 |   const el = document.getElementById('lang-hbar');\n1633 |   const langs = Object.entries(DATA.languages).sort((a,b) => b[1]-a[1]);\n1634 |   const max = langs[0]?.[1] || 1;\n1635 >   el.innerHTML = langs.map(([lang, count], i) => `\n1636 |     <div class=\"hbar-row\">\n1637 |       <div class=\"hbar-lang\">${{lang}}</div>\n1638 |       <div class=\"hbar-track\">"
+    },
+    {
+      "category": "Output Handling",
+      "severity": "HIGH",
+      "file": "/Users/sarveshtalele/Downloads/awesome-agent-skills/skills/reverse-engineering-skill/scripts/engine/generators/dashboard.py",
+      "line_number": 1660,
+      "description": "Unsafe Output Handling / DOM Injection",
+      "snippet": "1657 |   document.getElementById('arch-pattern-text').textContent = DATA.archPattern;\n1658 |   const pColor = {{ HIGH: 'var(--red)', MEDIUM: 'var(--orange)', LOW: 'var(--green)' }}[DATA.priority] || 'var(--red)';\n1659 |   const pBg    = {{ HIGH: 'rgba(255,69,58,0.10)', MEDIUM: 'rgba(255,159,10,0.10)', LOW: 'rgba(48,209,88,0.10)' }}[DATA.priority] || 'rgba(255,69,58,0.10)';\n1660 >   document.getElementById('priority-badge').innerHTML =\n1661 |     `<span class=\"priority-pill\" style=\"background:${{pBg}};color:${{pColor}}\">${{DATA.priority}} Priority</span>`;\n1662 |   document.getElementById('effort-text').textContent = DATA.effort;\n1663 | }}"
+    },
+    {
+      "category": "Output Handling",
+      "severity": "HIGH",
+      "file": "/Users/sarveshtalele/Downloads/awesome-agent-skills/skills/reverse-engineering-skill/scripts/engine/generators/dashboard.py",
+      "line_number": 1670,
+      "description": "Unsafe Output Handling / DOM Injection",
+      "snippet": "1667 | // ----------------------------------------------------------------\n1668 | function buildTechStack() {{\n1669 |   const el = document.getElementById('tech-stack-wrap');\n1670 >   el.innerHTML = DATA.techStack.length\n1671 |     ? DATA.techStack.map(t => `<span class=\"badge\">${{t}}</span>`).join('')\n1672 |     : '<span style=\"font-size:13px;color:var(--text2)\">No specific frameworks detected</span>';\n1673 | }}"
+    },
+    {
+      "category": "Output Handling",
+      "severity": "HIGH",
+      "file": "/Users/sarveshtalele/Downloads/awesome-agent-skills/skills/reverse-engineering-skill/scripts/engine/generators/dashboard.py",
+      "line_number": 1681,
+      "description": "Unsafe Output Handling / DOM Injection",
+      "snippet": "1678 | function buildModuleBars() {{\n1679 |   const el = document.getElementById('modules-bars');\n1680 |   if (!DATA.topModules.length) {{\n1681 >     el.innerHTML = '<p style=\"font-size:13px;color:var(--text2)\">No module data available</p>';\n1682 |     return;\n1683 |   }}\n1684 |   const max = DATA.topModules[0].connections || 1;"
+    },
+    {
+      "category": "Output Handling",
+      "severity": "HIGH",
+      "file": "/Users/sarveshtalele/Downloads/awesome-agent-skills/skills/reverse-engineering-skill/scripts/engine/generators/dashboard.py",
+      "line_number": 1685,
+      "description": "Unsafe Output Handling / DOM Injection",
+      "snippet": "1682 |     return;\n1683 |   }}\n1684 |   const max = DATA.topModules[0].connections || 1;\n1685 >   el.innerHTML = DATA.topModules.map(m => `\n1686 |     <div class=\"mod-row\">\n1687 |       <div class=\"mod-label\">\n1688 |         <span>${{m.module}}</span><span style=\"font-weight:600;color:var(--text)\">${{m.connections}}</span>"
+    },
+    {
+      "category": "Output Handling",
+      "severity": "HIGH",
+      "file": "/Users/sarveshtalele/Downloads/awesome-agent-skills/skills/reverse-engineering-skill/scripts/engine/generators/dashboard.py",
+      "line_number": 1703,
+      "description": "Unsafe Output Handling / DOM Injection",
+      "snippet": "1700 |   const wrap = document.getElementById('endpoints-table-wrap');\n1701 |   const cnt  = document.getElementById('ep-count');\n1702 |   if (!DATA.endpoints.length) {{\n1703 >     wrap.innerHTML = '<p style=\"font-size:13px;color:var(--text2);padding:8px 0\">No API endpoints detected. Routes may use custom patterns not covered by the static extractor.</p>';\n1704 |     cnt.textContent = '0 endpoints';\n1705 |     return;\n1706 |   }}"
+    },
+    {
+      "category": "Output Handling",
+      "severity": "HIGH",
+      "file": "/Users/sarveshtalele/Downloads/awesome-agent-skills/skills/reverse-engineering-skill/scripts/engine/generators/dashboard.py",
+      "line_number": 1717,
+      "description": "Unsafe Output Handling / DOM Injection",
+      "snippet": "1714 |       <td><span class=\"code-mono\">${{ep.file}}</span></td>\n1715 |     </tr>`;\n1716 |   }}).join('');\n1717 >   wrap.innerHTML = `\n1718 |     <table class=\"data-table\">\n1719 |       <thead><tr><th>Method</th><th>Path</th><th>Handler</th><th>File</th></tr></thead>\n1720 |       <tbody id=\"api-tbody\">${{rows}}</tbody>"
+    },
+    {
+      "category": "Output Handling",
+      "severity": "HIGH",
+      "file": "/Users/sarveshtalele/Downloads/awesome-agent-skills/skills/reverse-engineering-skill/scripts/engine/generators/dashboard.py",
+      "line_number": 1742,
+      "description": "Unsafe Output Handling / DOM Injection",
+      "snippet": "1739 | function buildDeadCode() {{\n1740 |   const fl = document.getElementById('dead-files-list');\n1741 |   const cl = document.getElementById('dead-classes-list');\n1742 >   fl.innerHTML = DATA.deadFiles.length\n1743 |     ? DATA.deadFiles.map(f =>\n1744 |         `<li class=\"dead-item\"><span class=\"dead-dot\" style=\"background:var(--orange)\"></span>${{f}}</li>`\n1745 |       ).join('')"
+    },
+    {
+      "category": "Output Handling",
+      "severity": "HIGH",
+      "file": "/Users/sarveshtalele/Downloads/awesome-agent-skills/skills/reverse-engineering-skill/scripts/engine/generators/dashboard.py",
+      "line_number": 1747,
+      "description": "Unsafe Output Handling / DOM Injection",
+      "snippet": "1744 |         `<li class=\"dead-item\"><span class=\"dead-dot\" style=\"background:var(--orange)\"></span>${{f}}</li>`\n1745 |       ).join('')\n1746 |     : '<li class=\"dead-item\" style=\"color:var(--green)\">No unreferenced files detected</li>';\n1747 >   cl.innerHTML = DATA.deadClasses.length\n1748 |     ? DATA.deadClasses.map(d =>\n1749 |         `<li class=\"dead-item\"><span class=\"dead-dot\" style=\"background:var(--red)\"></span>\n1750 |          <strong style=\"color:var(--text)\">${{d.class}}</strong>&nbsp;"
+    },
+    {
+      "category": "Output Handling",
+      "severity": "HIGH",
+      "file": "/Users/sarveshtalele/Downloads/awesome-agent-skills/skills/reverse-engineering-skill/scripts/engine/generators/dashboard.py",
+      "line_number": 1763,
+      "description": "Unsafe Output Handling / DOM Injection",
+      "snippet": "1760 |   const el = document.getElementById('layers-list');\n1761 |   const ds = document.getElementById('dep-stats');\n1762 |   if (!el) return;\n1763 >   el.innerHTML = DATA.layers.length\n1764 |     ? DATA.layers.map(l => `<span class=\"layer-chip\">${{l}}</span>`).join('')\n1765 |     : '<span style=\"font-size:13px;color:var(--text2);padding:8px\">No distinct layers inferred from file paths</span>';\n1766 |   if (ds) {{"
+    },
+    {
+      "category": "Output Handling",
+      "severity": "HIGH",
+      "file": "/Users/sarveshtalele/Downloads/awesome-agent-skills/skills/reverse-engineering-skill/scripts/engine/generators/dashboard.py",
+      "line_number": 1767,
+      "description": "Unsafe Output Handling / DOM Injection",
+      "snippet": "1764 |     ? DATA.layers.map(l => `<span class=\"layer-chip\">${{l}}</span>`).join('')\n1765 |     : '<span style=\"font-size:13px;color:var(--text2);padding:8px\">No distinct layers inferred from file paths</span>';\n1766 |   if (ds) {{\n1767 >     ds.innerHTML = `\n1768 |       <div class=\"stat-row\"><span class=\"stat-label\">Total Files Analyzed</span><span class=\"stat-val\">${{DATA.metrics.files}}</span></div>\n1769 |       <div class=\"stat-row\"><span class=\"stat-label\">Total Classes</span><span class=\"stat-val\">${{DATA.metrics.classes}}</span></div>\n1770 |       <div class=\"stat-row\"><span class=\"stat-label\">Total Methods</span><span class=\"stat-val\">${{DATA.metrics.methods}}</span></div>"
+    },
+    {
+      "category": "Output Handling",
+      "severity": "HIGH",
+      "file": "/Users/sarveshtalele/Downloads/awesome-agent-skills/skills/reverse-engineering-skill/scripts/engine/generators/dashboard.py",
+      "line_number": 1792,
+      "description": "Unsafe Output Handling / DOM Injection",
+      "snippet": "1789 |   const whatEl = document.getElementById('hiw-what');\n1790 |   if (whatEl) {{\n1791 |     const paras = (bl.what_it_does || 'No description available.').split(/\\\\n\\\\n+/);\n1792 >     whatEl.innerHTML = paras.map(p => `<p style=\"margin:0 0 10px 0\">${{p.replace(/[*][*]/g, '')}}</p>`).join('');\n1793 |   }}\n1794 | \n1795 |   // Core workflows"
+    },
+    {
+      "category": "Output Handling",
+      "severity": "HIGH",
+      "file": "/Users/sarveshtalele/Downloads/awesome-agent-skills/skills/reverse-engineering-skill/scripts/engine/generators/dashboard.py",
+      "line_number": 1800,
+      "description": "Unsafe Output Handling / DOM Injection",
+      "snippet": "1797 |   if (wfEl) {{\n1798 |     const workflows = bl.core_workflows || [];\n1799 |     if (workflows.length) {{\n1800 >       wfEl.innerHTML = workflows.map((wf, i) => {{\n1801 |         const steps = (wf.steps || []).map(s => `<li style=\"margin-bottom:3px\">${{s}}</li>`).join('');\n1802 |         const eps   = (wf.endpoints || []).map(e => `<code style=\"font-size:11px;background:var(--surface2);padding:2px 6px;border-radius:4px;margin-right:4px\">${{e}}</code>`).join('');\n1803 |         return `"
+    },
+    {
+      "category": "Output Handling",
+      "severity": "HIGH",
+      "file": "/Users/sarveshtalele/Downloads/awesome-agent-skills/skills/reverse-engineering-skill/scripts/engine/generators/dashboard.py",
+      "line_number": 1812,
+      "description": "Unsafe Output Handling / DOM Injection",
+      "snippet": "1809 |           </div>`;\n1810 |       }}).join('');\n1811 |     }} else {{\n1812 >       wfEl.innerHTML = '<p style=\"font-size:13px;color:var(--text2)\">No workflows detected</p>';\n1813 |     }}\n1814 |   }}\n1815 | "
+    },
+    {
+      "category": "Output Handling",
+      "severity": "HIGH",
+      "file": "/Users/sarveshtalele/Downloads/awesome-agent-skills/skills/reverse-engineering-skill/scripts/engine/generators/dashboard.py",
+      "line_number": 1820,
+      "description": "Unsafe Output Handling / DOM Injection",
+      "snippet": "1817 |   const rolesEl = document.getElementById('hiw-roles');\n1818 |   if (rolesEl) {{\n1819 |     const roles = bl.user_roles || [];\n1820 >     rolesEl.innerHTML = roles.length\n1821 |       ? roles.map(r => `<span class=\"badge green\">${{r}}</span>`).join('')\n1822 |       : '<span style=\"font-size:13px;color:var(--text2)\">No roles detected</span>';\n1823 |   }}"
+    },
+    {
+      "category": "Output Handling",
+      "severity": "HIGH",
+      "file": "/Users/sarveshtalele/Downloads/awesome-agent-skills/skills/reverse-engineering-skill/scripts/engine/generators/dashboard.py",
+      "line_number": 1829,
+      "description": "Unsafe Output Handling / DOM Injection",
+      "snippet": "1826 |   const rulesEl = document.getElementById('hiw-rules');\n1827 |   if (rulesEl) {{\n1828 |     const rules = bl.key_business_rules || [];\n1829 >     rulesEl.innerHTML = rules.length\n1830 |       ? rules.map(r => `<li style=\"margin-bottom:5px\">${{r}}</li>`).join('')\n1831 |       : '<li style=\"color:var(--text2)\">No rules inferred</li>';\n1832 |   }}"
+    },
+    {
+      "category": "Output Handling",
+      "severity": "HIGH",
+      "file": "/Users/sarveshtalele/Downloads/awesome-agent-skills/skills/reverse-engineering-skill/scripts/engine/generators/dashboard.py",
+      "line_number": 1839,
+      "description": "Unsafe Output Handling / DOM Injection",
+      "snippet": "1836 |   if (entEl) {{\n1837 |     const ents = bl.data_entities_explained || [];\n1838 |     if (ents.length) {{\n1839 >       entEl.innerHTML = `\n1840 |         <table style=\"width:100%;border-collapse:collapse;font-size:13px\">\n1841 |           <thead>\n1842 |             <tr style=\"border-bottom:1px solid var(--border)\">"
+    },
+    {
+      "category": "Output Handling",
+      "severity": "HIGH",
+      "file": "/Users/sarveshtalele/Downloads/awesome-agent-skills/skills/reverse-engineering-skill/scripts/engine/generators/dashboard.py",
+      "line_number": 1858,
+      "description": "Unsafe Output Handling / DOM Injection",
+      "snippet": "1855 |           </tbody>\n1856 |         </table>`;\n1857 |     }} else {{\n1858 >       entEl.innerHTML = '<p style=\"font-size:13px;color:var(--text2)\">No entity glossary available</p>';\n1859 |     }}\n1860 |   }}\n1861 | "
+    },
+    {
+      "category": "Output Handling",
+      "severity": "HIGH",
+      "file": "/Users/sarveshtalele/Downloads/awesome-agent-skills/skills/reverse-engineering-skill/scripts/engine/generators/dashboard.py",
+      "line_number": 1866,
+      "description": "Unsafe Output Handling / DOM Injection",
+      "snippet": "1863 |   const intEl = document.getElementById('hiw-integrations');\n1864 |   if (intEl) {{\n1865 |     const integrations = bl.integrations || [];\n1866 >     intEl.innerHTML = integrations.length\n1867 |       ? integrations.map(i => `<span class=\"badge\">${{i}}</span>`).join('')\n1868 |       : '<span style=\"font-size:13px;color:var(--text2)\">None detected</span>';\n1869 |   }}"
+    },
+    {
+      "category": "Output Handling",
+      "severity": "HIGH",
+      "file": "/Users/sarveshtalele/Downloads/awesome-agent-skills/skills/reverse-engineering-skill/scripts/engine/generators/dashboard.py",
+      "line_number": 1880,
+      "description": "Unsafe Output Handling / DOM Injection",
+      "snippet": "1877 |   \n1878 |   const data = DATA.blockDiagram;\n1879 |   if (!data || !data.layers || !data.layers.length) {{\n1880 >     container.innerHTML = '<p style=\"font-size:13px;color:var(--text2);padding:24px\">No system architecture block diagram available</p>';\n1881 |     return;\n1882 |   }}\n1883 | "
+    },
+    {
+      "category": "Output Handling",
+      "severity": "HIGH",
+      "file": "/Users/sarveshtalele/Downloads/awesome-agent-skills/skills/reverse-engineering-skill/scripts/engine/generators/dashboard.py",
+      "line_number": 1921,
+      "description": "Unsafe Output Handling / DOM Injection",
+      "snippet": "1918 |   }});\n1919 |   \n1920 |   html += '</div>';\n1921 >   container.innerHTML = html;\n1922 |   \n1923 |   const nodes = container.querySelectorAll('.diagram-node-pill');\n1924 |   nodes.forEach(nodeEl => {{"
+    },
+    {
+      "category": "Output Handling",
+      "severity": "HIGH",
+      "file": "/Users/sarveshtalele/Downloads/awesome-agent-skills/skills/reverse-engineering-skill/scripts/engine/generators/dashboard.py",
+      "line_number": 1997,
+      "description": "Unsafe Output Handling / DOM Injection",
+      "snippet": "1994 |       {{ label: 'Relationships',      value: schema.relationship_count || 0,  sub: 'FK and navigation links', col: '#30d158' }},\n1995 |       {{ label: 'Bounded Contexts',   value: boundaries.length,               sub: 'proposed microservices',  col: '#bf5af2' }},\n1996 |     ];\n1997 >     dbMetEl.innerHTML = dbItems.map(item => `\n1998 |       <div class=\"metric-card\">\n1999 |         <div class=\"metric-icon-wrap\" style=\"background:${{item.col}}18;color:${{item.col}}\">\n2000 |           <svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\">"
+    },
+    {
+      "category": "Output Handling",
+      "severity": "HIGH",
+      "file": "/Users/sarveshtalele/Downloads/awesome-agent-skills/skills/reverse-engineering-skill/scripts/engine/generators/dashboard.py",
+      "line_number": 2015,
+      "description": "Unsafe Output Handling / DOM Injection",
+      "snippet": "2012 |   // Legend inside the entity diagram card\n2013 |   const legendEl = document.getElementById('entity-legend');\n2014 |   if (legendEl && boundaries.length) {{\n2015 >     legendEl.innerHTML = boundaries.slice(0, 6).map(b =>\n2016 |       `<span><span class=\"legend-dot\" style=\"background:${{b.color}}\"></span>${{(b.name || '').split('/')[0].trim()}}</span>`\n2017 |     ).join('');\n2018 |   }}"
+    },
+    {
+      "category": "Output Handling",
+      "severity": "HIGH",
+      "file": "/Users/sarveshtalele/Downloads/awesome-agent-skills/skills/reverse-engineering-skill/scripts/engine/generators/dashboard.py",
+      "line_number": 2024,
+      "description": "Unsafe Output Handling / DOM Injection",
+      "snippet": "2021 |   const bgEl = document.getElementById('boundary-grid');\n2022 |   if (bgEl) {{\n2023 |     if (!boundaries.length) {{\n2024 >       bgEl.innerHTML = '<p style=\"font-size:13px;color:var(--text2)\">No bounded contexts identified.</p>';\n2025 |     }} else {{\n2026 |       bgEl.innerHTML = boundaries.map(b => {{\n2027 |         const chips = (b.entities || []).map(e =>"
+    },
+    {
+      "category": "Output Handling",
+      "severity": "HIGH",
+      "file": "/Users/sarveshtalele/Downloads/awesome-agent-skills/skills/reverse-engineering-skill/scripts/engine/generators/dashboard.py",
+      "line_number": 2026,
+      "description": "Unsafe Output Handling / DOM Injection",
+      "snippet": "2023 |     if (!boundaries.length) {{\n2024 |       bgEl.innerHTML = '<p style=\"font-size:13px;color:var(--text2)\">No bounded contexts identified.</p>';\n2025 |     }} else {{\n2026 >       bgEl.innerHTML = boundaries.map(b => {{\n2027 |         const chips = (b.entities || []).map(e =>\n2028 |           `<span class=\"entity-chip\" style=\"border-color:${{b.color}}55;color:${{b.color}}\">${{e}}</span>`\n2029 |         ).join('');"
+    },
+    {
+      "category": "Output Handling",
+      "severity": "HIGH",
+      "file": "/Users/sarveshtalele/Downloads/awesome-agent-skills/skills/reverse-engineering-skill/scripts/engine/generators/dashboard.py",
+      "line_number": 2051,
+      "description": "Unsafe Output Handling / DOM Injection",
+      "snippet": "2048 |   if (etEl) {{\n2049 |     const ents = schema.entities || [];\n2050 |     if (!ents.length) {{\n2051 >       etEl.innerHTML = [\n2052 |         '<p style=\"font-size:13px;color:var(--text2);padding:8px 0;line-height:1.7\">',\n2053 |         'No entity definitions were detected in the parsed files. ',\n2054 |         'This is expected when entity/model files fall outside the 300-file analysis cap ',"
+    },
+    {
+      "category": "Output Handling",
+      "severity": "HIGH",
+      "file": "/Users/sarveshtalele/Downloads/awesome-agent-skills/skills/reverse-engineering-skill/scripts/engine/generators/dashboard.py",
+      "line_number": 2072,
+      "description": "Unsafe Output Handling / DOM Injection",
+      "snippet": "2069 |           <td><span class=\"code-mono\">${{e.file}}</span></td>\n2070 |         </tr>`;\n2071 |       }}).join('');\n2072 >       etEl.innerHTML = `<table class=\"data-table\">\n2073 |         <thead><tr>\n2074 |           <th>Entity</th><th>Table</th><th>Fields</th><th>Relationships</th><th>File</th>\n2075 |         </tr></thead>"
+    },
+    {
+      "category": "Output Handling",
+      "severity": "HIGH",
+      "file": "/Users/sarveshtalele/Downloads/awesome-agent-skills/skills/reverse-engineering-skill/scripts/engine/generators/dashboard.py",
+      "line_number": 2098,
+      "description": "Unsafe Output Handling / DOM Injection",
+      "snippet": "2095 | \n2096 |   if (!entities.length) {{\n2097 |     if (wrap) wrap.style.height = 'auto';\n2098 >     container.innerHTML = [\n2099 |       '<p style=\"padding:32px 24px;font-size:13px;color:var(--text2);line-height:1.7\">',\n2100 |       'No entity definitions detected in the analyzed files. ',\n2101 |       'Microservice boundary suggestions in the cards below are derived from the AI modernisation roadmap. ',"
+    },
+    {
+      "category": "Output Handling",
+      "severity": "HIGH",
+      "file": "/Users/sarveshtalele/Downloads/awesome-agent-skills/skills/reverse-engineering-skill/scripts/engine/generators/dashboard.py",
+      "line_number": 2177,
+      "description": "Unsafe Output Handling / DOM Injection",
+      "snippet": "2174 |       entityNetInited = true;\n2175 |     }} catch (err) {{\n2176 |       console.error('Entity network failed:', err);\n2177 >       container.innerHTML = '<p style=\"padding:40px 24px;font-size:13px;color:var(--text2)\">Entity diagram failed. Check browser console.</p>';\n2178 |     }}\n2179 |   }});\n2180 | }}"
+    },
+    {
+      "category": "Output Handling",
+      "severity": "HIGH",
+      "file": "/Users/sarveshtalele/Downloads/awesome-agent-skills/skills/reverse-engineering-skill/scripts/engine/generators/dashboard.py",
+      "line_number": 2191,
+      "description": "Unsafe Output Handling / DOM Injection",
+      "snippet": "2188 |   // Domain badge\n2189 |   const domainEl = document.getElementById('bl-domain-badge');\n2190 |   if (domainEl && bl.business_domain) {{\n2191 >     domainEl.innerHTML = `<span class=\"badge blue\" style=\"font-size:13px;padding:6px 16px\">${{bl.business_domain}}</span>`;\n2192 |   }}\n2193 | \n2194 |   // What it does \u2014 show first paragraph only in the card"
+    },
+    {
+      "category": "Output Handling",
+      "severity": "HIGH",
+      "file": "/Users/sarveshtalele/Downloads/awesome-agent-skills/skills/reverse-engineering-skill/scripts/engine/generators/dashboard.py",
+      "line_number": 2204,
+      "description": "Unsafe Output Handling / DOM Injection",
+      "snippet": "2201 |   // User roles\n2202 |   const rolesEl = document.getElementById('bl-roles');\n2203 |   if (rolesEl) {{\n2204 >     rolesEl.innerHTML = (bl.user_roles || []).length\n2205 |       ? (bl.user_roles || []).map(r => `<span class=\"badge green\">${{r}}</span>`).join('')\n2206 |       : '<span style=\"font-size:13px;color:var(--text2)\">Not detected</span>';\n2207 |   }}"
+    },
+    {
+      "category": "Output Handling",
+      "severity": "HIGH",
+      "file": "/Users/sarveshtalele/Downloads/awesome-agent-skills/skills/reverse-engineering-skill/scripts/engine/generators/dashboard.py",
+      "line_number": 2212,
+      "description": "Unsafe Output Handling / DOM Injection",
+      "snippet": "2209 |   // Integrations\n2210 |   const intEl = document.getElementById('bl-integrations');\n2211 |   if (intEl) {{\n2212 >     intEl.innerHTML = (bl.integrations || []).length\n2213 |       ? (bl.integrations || []).map(i => `<span class=\"badge\">${{i}}</span>`).join('')\n2214 |       : '<span style=\"font-size:13px;color:var(--text2)\">None detected</span>';\n2215 |   }}"
+    },
+    {
+      "category": "Output Handling",
+      "severity": "HIGH",
+      "file": "/Users/sarveshtalele/Downloads/awesome-agent-skills/skills/reverse-engineering-skill/scripts/engine/generators/dashboard.py",
+      "line_number": 2221,
+      "description": "Unsafe Output Handling / DOM Injection",
+      "snippet": "2218 |   const rulesEl = document.getElementById('bl-rules');\n2219 |   if (rulesEl) {{\n2220 |     const rules = (bl.key_business_rules || []).slice(0, 4);\n2221 >     rulesEl.innerHTML = rules.length\n2222 |       ? rules.map(r => `<li>${{r}}</li>`).join('')\n2223 |       : '<li style=\"color:var(--text2)\">No rules inferred</li>';\n2224 |   }}"
+    }
+  ],
+  "regression": {
+    "skill_name": "reverse-engineering-skill",
+    "has_baseline": true,
+    "overall_delta": 15.0,
+    "functional_delta": 0.0,
+    "security_delta": 100.0,
+    "trigger_delta": 0.0,
+    "regressions": [],
+    "has_critical_regression": false
+  }
+}
