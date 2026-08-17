@@ -1,0 +1,16 @@
+{
+  "skill_name": "playwright-test-generator",
+  "evals": [
+    {
+      "id": "pw-gen-001-checkout-flow",
+      "prompt": "Generate complete TypeScript Playwright test script for the checkout cart flow with Page Object Model structure.",
+      "expected_output": "The skill generates robust Playwright test script with locators, assertions (expect), and POM class.",
+      "files": [],
+      "assertions": [
+        "Generates Playwright test script",
+        "Uses robust locators and expect assertions",
+        "Follows Page Object Model pattern"
+      ]
+    }
+  ]
+}

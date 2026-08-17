@@ -8,6 +8,7 @@ the LocationResolver and PatternFinder — no LLM involved, fully
 deterministic AST/regex parsing.
 """
 import ast
+import os
 import re
 from dataclasses import dataclass, field
 from pathlib import Path
@@ -138,7 +139,7 @@ class CodebaseIndexer:
     # ------------------------------------------------------------------
 
     def _walk(self):
-        for root, dirs, files in __import__("os").walk(self.repo_path):
+        for root, dirs, files in os.walk(self.repo_path):
             dirs[:] = [d for d in dirs if d not in IGNORE_DIRS and not d.startswith(".")]
             for name in files:
                 full = Path(root) / name

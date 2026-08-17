@@ -1,0 +1,16 @@
+{
+  "skill_name": "test-design-generator",
+  "evals": [
+    {
+      "id": "design-001-payment-tests",
+      "prompt": "Design complete test case coverage matrix for credit card payment checkout with positive, negative, and boundary test cases.",
+      "expected_output": "The skill generates positive, negative, boundary, and validation test cases mapped with deterministic IDs.",
+      "files": [],
+      "assertions": [
+        "Generates positive and negative test cases",
+        "Includes boundary condition test cases",
+        "Assigns deterministic test IDs"
+      ]
+    }
+  ]
+}

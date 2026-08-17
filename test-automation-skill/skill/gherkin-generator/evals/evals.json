@@ -1,0 +1,16 @@
+{
+  "skill_name": "gherkin-generator",
+  "evals": [
+    {
+      "id": "gherkin-001-login-feature",
+      "prompt": "Generate Cucumber Gherkin feature scenarios for user login with positive authentication, invalid password, and locked account cases.",
+      "expected_output": "The skill generates executable Gherkin feature file with Feature, Background, Scenario, and Scenario Outline tables.",
+      "files": [],
+      "assertions": [
+        "Contains Feature keyword",
+        "Includes Scenario with Given, When, Then steps",
+        "Covers positive and negative authentication cases"
+      ]
+    }
+  ]
+}

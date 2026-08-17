@@ -1,0 +1,26 @@
+{
+  "skill_name": "change-impact-analysis",
+  "evals": [
+    {
+      "id": "impact-001-pr-analysis",
+      "prompt": "Perform change impact analysis on this PR diff affecting auth/token.py and user/models.py. Calculate deployment risk score and generate deployment checklist.",
+      "expected_output": "The skill analyzes changed files, builds dependency graph, identifies directly and transitively affected modules, calculates deployment risk score, and generates deployment checklist.",
+      "files": [],
+      "assertions": [
+        "Identifies directly and transitively affected modules",
+        "Calculates deployment risk score",
+        "Generates deployment checklist"
+      ]
+    },
+    {
+      "id": "impact-002-api-breakage",
+      "prompt": "Check if changing schema in api/v1/orders.json introduces breaking changes for client consumers.",
+      "expected_output": "The skill inspects API contract changes, checks for API contract breaking changes, and lists impacted endpoints.",
+      "files": [],
+      "assertions": [
+        "Checks for API contract breaking changes",
+        "Lists impacted endpoints"
+      ]
+    }
+  ]
+}

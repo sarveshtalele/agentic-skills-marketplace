@@ -21,8 +21,7 @@ tools:
 
 ## Purpose
 
-[`change-impact-analysis-skill`](../../../change-impact-analysis-skill/skill/change-impact-analysis/SKILL.md)
-answers *"I already changed these files — what will break?"*
+`change-impact-analysis` answers *"I already changed these files — what will break?"*
 
 **This skill answers the question that comes BEFORE that:**
 *"I haven't written any code yet — given this requirement, which files do I

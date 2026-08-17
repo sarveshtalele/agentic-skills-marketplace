@@ -1,24 +1,18 @@
 ---
 name: reverse-engineering-skill
 description: >
-  Reverse engineer any GitHub repository OR any project already sitting in a local folder —
-  produces a complete 4-section analysis: (1) System Design Overview (full architecture,
-  codebase metrics, API catalog, data model, dependency graph, modernization roadmap),
-  (2) Authentication & Access Control (detects RBAC role-based, ABAC attribute/policy-based,
-  and ReBAC relationship-based patterns with named roles, policies, and route protection map),
-  (3) Business Logic Extractor (business domain, core workflows end-to-end, user roles, key
-  business rules, entity glossary, external integrations), (4) Screen-by-Screen Navigation
-  (complete UI screen inventory, Mermaid navigation flowchart, end-to-end user journey for web
-  apps including ASP.NET Web Forms .aspx pages, MVC Razor views, React/Vue/Angular SPAs, JSP
-  pages).
-  Trigger this skill when the user says: reverse engineer, analyze this repo, analyze this
-  codebase, analyze this project/folder, what does this codebase do, explain the system
-  design, document the architecture, extract business logic, show me how this web app
-  navigates, what auth does this project use, screen flow — OR provides any github.com URL,
-  OR provides/implies a local folder path (e.g. "reverse engineer this project", "analyze the
-  code in this repo", "document the folder I'm in", "reverse engineer C:\Projects\LegacyApp")
-  with intent to understand or document it.
-  No Anthropic API key required — GitHub Copilot is the AI engine.
+  Reverse engineer any repository or local folder into a 4-section architecture report:
+  (1) System Design & Architecture, (2) Authentication & Access Control (RBAC/ABAC/ReBAC),
+  (3) Business Logic & Domain Workflows, and (4) Screen-by-Screen UI Navigation Flowchart.
+  Trigger on: reverse engineer, analyze this repo/codebase, explain architecture, system design,
+  extract business logic, web app screen navigation, route protection, or understand legacy code.
+license: Apache-2.0
+metadata:
+  sdlc: Architecture
+  tags:
+    - SDLC:Architecture
+    - SDLC:System-Design
+    - SDLC:Reverse-Engineering
 version: "3.2.0"
 tools:
   - run_in_terminal

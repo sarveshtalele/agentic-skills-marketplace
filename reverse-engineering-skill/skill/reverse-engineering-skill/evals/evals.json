@@ -1,0 +1,17 @@
+{
+  "skill_name": "reverse-engineering-skill",
+  "evals": [
+    {
+      "id": "rev-001-architecture-audit",
+      "prompt": "Reverse engineer the repository at /workspace/app and produce a 4-section architecture, authentication, business logic, and UI navigation report.",
+      "expected_output": "The skill generates a 4-section report detailing System Design overview, Authentication and Access Control, Business Logic rules, and screen-by-screen UI navigation flowchart.",
+      "files": [],
+      "assertions": [
+        "Produces System Design overview",
+        "Documents Authentication and Access Control",
+        "Extracts Business Logic and domain rules",
+        "Includes UI navigation flow"
+      ]
+    }
+  ]
+}
