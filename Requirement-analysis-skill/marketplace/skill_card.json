@@ -1,0 +1,99 @@
+{
+  "skill_card": {
+    "starterkit_id": "requirement-analysis",
+    "name": "Requirement Analysis Skill",
+    "description": "A polyglot, deterministic pre-development planning skill that analyzes natural language requirements against a codebase to identify candidate files to touch, exact code insertion points, design patterns to follow, and applicable security, compliance, and formatting rules.",
+    "origin": {
+      "BG": "BFSI",
+      "ISU": "APAC",
+      "Account": "CFS, CBA"
+    },
+    "maintainers": [
+      {
+        "name": "Sarvesh Talele",
+        "contact": "sarvesh.talele@tcs.com"
+      },
+      {
+        "name": "Tejus Ajit Manjrekar",
+        "contact": "tejus.manjrekar@tcs.com"
+      },
+      {
+        "name": "Shivprakash Swami",
+        "contact": "shivprakash.swami@tcs.com"
+      }
+    ],
+    "version": "1.0.0",
+    "status": "verified",
+    "technology": [
+      "Python",
+      "JavaScript",
+      "TypeScript",
+      "Java",
+      ".NET",
+      "C#",
+      "Go",
+      "Git",
+      "AST Analysis",
+      "OWASP",
+      "PCI-DSS"
+    ],
+    "specialization": {
+      "primary": "pre_development_requirement_planning",
+      "domain_specific": [
+        "Feature Specification",
+        "Symbol & File Matcher",
+        "Pattern Extraction",
+        "Security & Compliance Checklist",
+        "Codebase Indexing"
+      ]
+    },
+    "tasks": [
+      {
+        "name": "Parse and structure natural language requirement",
+        "description": "Extracts semantic intent, target technical entities, action types, and domain security tags from raw user feature descriptions or Jira tickets.",
+        "input_schema": "Natural language requirement prompt or user story.",
+        "output_schema": "Structured intent metadata, entity tags, and domain classifications.",
+        "async": true
+      },
+      {
+        "name": "Identify candidate files and insertion points",
+        "description": "Scans the codebase index to rank existing files to modify or suggest new file paths, locating exact line numbers and symbol references.",
+        "input_schema": "Repository path and structured intent.",
+        "output_schema": "Ranked file modification candidates with line locations and match reasons.",
+        "async": true
+      },
+      {
+        "name": "Generate architecture plan and compliance checklist",
+        "description": "Identifies existing structural patterns to follow and emits a tailored security, regulatory compliance, and linting checklist.",
+        "input_schema": "Matched entities and target technologies.",
+        "output_schema": "Complete pre-development implementation plan and compliance checklist.",
+        "async": true
+      }
+    ],
+    "documentation": {
+      "readme": "README.md",
+      "howto": "QuickStart.md",
+      "changelog": "Initial verified release based on the published marketplace skill documentation."
+    },
+    "supported_harness": [
+      "GitHub Copilot",
+      "Claude Code",
+      "Cursor",
+      "Antigravity",
+      "AMPCode",
+      "OpenCode",
+      "Kiro",
+      "Codex",
+      "Cline",
+      "Windsurf",
+      "Roo Code",
+      "Aider"
+    ],
+    "tested_harness": [
+      "GitHub Copilot",
+      "Claude Code",
+      "Cursor",
+      "Antigravity"
+    ]
+  }
+}

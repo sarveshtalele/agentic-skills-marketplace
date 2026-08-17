@@ -1,0 +1,99 @@
+{
+  "skill_card": {
+    "starterkit_id": "reverse-engineering-skill",
+    "name": "Reverse Engineering Skill",
+    "description": "An offline, deterministic architecture recovery skill that scans polyglot codebases to extract module boundaries, dependency graphs, API catalogs, data schemas, security perimeters, and generate interactive architecture dashboards.",
+    "origin": {
+      "BG": "BFSI",
+      "ISU": "APAC",
+      "Account": "CFS, CBA"
+    },
+    "maintainers": [
+      {
+        "name": "Sarvesh Talele",
+        "contact": "sarvesh.talele@tcs.com"
+      },
+      {
+        "name": "Tejus Ajit Manjrekar",
+        "contact": "tejus.manjrekar@tcs.com"
+      },
+      {
+        "name": "Shivprakash Swami",
+        "contact": "shivprakash.swami@tcs.com"
+      }
+    ],
+    "version": "1.0.0",
+    "status": "verified",
+    "technology": [
+      "Python",
+      "JavaScript",
+      "TypeScript",
+      "Java",
+      ".NET",
+      "C#",
+      "Go",
+      "Git",
+      "Mermaid",
+      "HTML5",
+      "JSON"
+    ],
+    "specialization": {
+      "primary": "codebase_architecture_recovery",
+      "domain_specific": [
+        "Architecture Mapping",
+        "Dependency Graph Extraction",
+        "API Surface Discovery",
+        "Database Schema Reverse Engineering",
+        "Interactive Dashboard Generation"
+      ]
+    },
+    "tasks": [
+      {
+        "name": "Index repository and extract symbols",
+        "description": "Parses multi-language source trees to extract classes, functions, imports, endpoints, database models, and service interfaces.",
+        "input_schema": "Target repository path.",
+        "output_schema": "Structured AST symbol table and component catalog.",
+        "async": true
+      },
+      {
+        "name": "Construct system architecture models",
+        "description": "Builds component interaction graphs, module hierarchies, and data-flow models with zero external network dependencies.",
+        "input_schema": "Symbol tables and dependency links.",
+        "output_schema": "Directed architecture graph and dependency adjacency matrices.",
+        "async": true
+      },
+      {
+        "name": "Generate architecture reports and interactive dashboard",
+        "description": "Produces comprehensive system overview markdown, Mermaid diagrams, and an offline interactive HTML visual dashboard.",
+        "input_schema": "Architecture model and metrics.",
+        "output_schema": "Architecture specification markdown and standalone HTML dashboard.",
+        "async": true
+      }
+    ],
+    "documentation": {
+      "readme": "README.md",
+      "howto": "QuickStart.md",
+      "changelog": "Initial verified release based on the published marketplace skill documentation."
+    },
+    "supported_harness": [
+      "GitHub Copilot",
+      "Claude Code",
+      "Cursor",
+      "Antigravity",
+      "AMPCode",
+      "OpenCode",
+      "Kiro",
+      "Codex",
+      "Cline",
+      "Windsurf",
+      "Roo Code",
+      "Aider"
+    ],
+    "tested_harness": [
+      "GitHub Copilot",
+      "Claude Code",
+      "Cursor",
+      "Antigravity"
+    ]
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "skill_card": {
+    "starterkit_id": "change-impact-analysis",
+    "name": "Change Impact Analysis Skill",
+    "description": "A polyglot, deterministic deployment-phase skill that analyzes changed files or git diffs to build a dependency graph, determine the blast radius, validate API contract compatibility, map ownership, and compute a 0–100 release risk score with an actionable deployment checklist.",
+    "origin": {
+      "BG": "BFSI",
+      "ISU": "APAC",
+      "Account": "CFS, CBA"
+    },
+    "maintainers": [
+      {
+        "name": "Sarvesh Talele",
+        "contact": "sarvesh.talele@tcs.com"
+      },
+      {
+        "name": "Tejus Ajit Manjrekar",
+        "contact": "tejus.manjrekar@tcs.com"
+      },
+      {
+        "name": "Shivprakash Swami",
+        "contact": "shivprakash.swami@tcs.com"
+      }
+    ],
+    "version": "1.0.0",
+    "status": "verified",
+    "technology": [
+      "Python",
+      "JavaScript",
+      "TypeScript",
+      "Java",
+      ".NET",
+      "C#",
+      "Go",
+      "Git",
+      "OpenAPI",
+      "GraphQL",
+      "Protobuf"
+    ],
+    "specialization": {
+      "primary": "deployment_risk_assessment",
+      "domain_specific": [
+        "Release Engineering",
+        "Dependency Graph Analysis",
+        "Blast Radius Analysis",
+        "API Contract Validation",
+        "Ownership Mapping"
+      ]
+    },
+    "tasks": [
+      {
+        "name": "Detect changed files",
+        "description": "Uses git diff or a filesystem fallback to identify the repository changes to analyze and determine the input set for downstream impact assessment.",
+        "input_schema": "Repository path, base branch, changed file list or git diff trigger.",
+        "output_schema": "Normalized changed file set and change detection method.",
+        "async": true
+      },
+      {
+        "name": "Build dependency graph and blast radius",
+        "description": "Parses source code across multi-language repositories, constructs a directed dependency graph, and reverse-traverses it to find directly and transitively affected modules.",
+        "input_schema": "Repository path and changed file set.",
+        "output_schema": "Impacted modules, affected APIs, regression areas, consumer applications, and direct/transitive impact counts.",
+        "async": true
+      },
+      {
+        "name": "Generate deployment artifacts",
+        "description": "Validates API contract compatibility, computes a deterministic 0–100 deployment risk score, and emits an impact report plus a deployment checklist for release decision support.",
+        "input_schema": "Impact analysis results, contract validation findings, and risk-scoring inputs.",
+        "output_schema": "Impact report markdown, machine-readable JSON, and deployment checklist.",
+        "async": true
+      }
+    ],
+    "documentation": {
+      "readme": "README.md",
+      "howto": "QuickStart.md",
+      "changelog": "Initial verified release based on the published marketplace skill documentation and repository reference materials."
+    },
+    "supported_harness": [
+      "GitHub Copilot",
+      "Claude Code",
+      "Cursor",
+      "Antigravity",
+      "AMPCode",
+      "OpenCode",
+      "Kiro",
+      "Codex",
+      "Cline",
+      "Windsurf",
+      "Roo Code",
+      "Aider"
+    ],
+    "tested_harness": [
+      "GitHub Copilot",
+      "Claude Code",
+      "Cursor",
+      "Antigravity"
+    ]
+  }
+}
