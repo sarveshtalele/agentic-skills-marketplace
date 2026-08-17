@@ -1,0 +1,25 @@
+name: reverse-engineering-skill
+display_name: Reverse Engineering Skill
+version: 1.0.0
+description: An offline, deterministic architecture recovery skill that scans polyglot
+  codebases to extract module boundaries, dependency graphs, API catalogs, data schemas,
+  security perimeters, and generate interactive architecture dashboards.
+author: Sarvesh Talele
+license: MIT
+category: code-analysis
+tags:
+- reverse-engineering-skill
+- sdlc
+- agent-skills
+runtime:
+  engine: python
+  min_version: '3.8'
+  entry_point: scripts/reverse_engineering_skill_skill.py
+  dependencies: []
+tools:
+- run_in_terminal
+- read_file
+- file_search
+- grep_search
+entry_files:
+  skill_definition: SKILL.md

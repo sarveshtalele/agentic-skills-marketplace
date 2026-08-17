@@ -1,0 +1,26 @@
+name: change-impact-analysis
+display_name: Change Impact Analysis Skill
+version: 1.0.0
+description: "A polyglot, deterministic deployment-phase skill that analyzes changed\
+  \ files or git diffs to build a dependency graph, determine the blast radius, validate\
+  \ API contract compatibility, map ownership, and compute a 0\u2013100 release risk\
+  \ score with an actionable deployment checklist."
+author: Sarvesh Talele
+license: MIT
+category: code-analysis
+tags:
+- change-impact-analysis
+- sdlc
+- agent-skills
+runtime:
+  engine: python
+  min_version: '3.8'
+  entry_point: scripts/change_impact_analysis_skill.py
+  dependencies: []
+tools:
+- run_in_terminal
+- read_file
+- file_search
+- grep_search
+entry_files:
+  skill_definition: SKILL.md

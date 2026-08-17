@@ -1,0 +1,81 @@
+{
+  "skill_card": {
+    "starterkit_id": "change-impact-analysis",
+    "name": "Change Impact Analysis Skill",
+    "description": "A polyglot, deterministic deployment-phase skill that analyzes changed files or git diffs to build a dependency graph, determine the blast radius, validate API contract compatibility, map ownership, and compute a 0\u2013100 release risk score with an actionable deployment checklist.",
+    "origin": {
+      "BG": "BFSI",
+      "ISU": "APAC",
+      "Account": "CFS, CBA"
+    },
+    "maintainers": [
+      {
+        "name": "Sarvesh Talele",
+        "contact": "sarvesh.talele@tcs.com"
+      },
+      {
+        "name": "Tejus Ajit Manjrekar",
+        "contact": "tejus.manjrekar@tcs.com"
+      },
+      {
+        "name": "Shivprakash Swami",
+        "contact": "shivprakash.swami@tcs.com"
+      }
+    ],
+    "version": "1.0.0",
+    "status": "verified",
+    "technology": [
+      "Python",
+      "JavaScript",
+      "TypeScript",
+      "Java",
+      "C#",
+      "Go",
+      "Git"
+    ],
+    "specialization": {
+      "primary": "deployment_risk_assessment",
+      "domain_specific": [
+        "Release Engineering",
+        "Dependency Graph Analysis",
+        "Blast Radius Analysis",
+        "API Contract Validation",
+        "Ownership Mapping"
+      ]
+    },
+    "tasks": [
+      {
+        "name": "Execute change-impact-analysis",
+        "description": "Automates procedural execution for change-impact-analysis deterministically.",
+        "input_schema": "Task prompt and repository context.",
+        "output_schema": "Formatted artifacts and structured reports.",
+        "async": true
+      }
+    ],
+    "documentation": {
+      "readme": "README.md",
+      "howto": "QuickStart.md",
+      "changelog": "Initial verified release."
+    },
+    "supported_harness": [
+      "GitHub Copilot",
+      "Claude Code",
+      "Cursor",
+      "Antigravity",
+      "AMPCode",
+      "OpenCode",
+      "Kiro",
+      "Codex",
+      "Cline",
+      "Windsurf",
+      "Roo Code",
+      "Aider"
+    ],
+    "tested_harness": [
+      "GitHub Copilot",
+      "Claude Code",
+      "Cursor",
+      "Antigravity"
+    ]
+  }
+}
